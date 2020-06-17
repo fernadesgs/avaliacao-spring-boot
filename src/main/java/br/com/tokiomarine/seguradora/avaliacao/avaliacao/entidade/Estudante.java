@@ -28,7 +28,14 @@ public class Estudante implements Serializable {
     @NotBlank(message = "Email não preenchido")
     private String email;
 
-    @NotBlank(message = "telefone não preenchido")
+    @NotBlank(message = "Telefone não preenchido")
     private String telefone;
+
+    @NotBlank(message = "Matrícula não preenchida")
+    private String matricula;
+
+    @NotBlank(message = "Curso não preenchido")
+    private String curso;
+
 
 }

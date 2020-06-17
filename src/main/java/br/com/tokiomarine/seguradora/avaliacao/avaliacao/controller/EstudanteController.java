@@ -58,8 +58,11 @@ public class EstudanteController {
             log.error(result.getAllErrors().toString());
             return "cadastrar-estudante";
         }
-        service.cadastrarEstudante(estudante);
-        return "redirect:listar";
+
+            log.info(estudante.toString());
+            service.cadastrarEstudante(estudante);
+            return "redirect:listar";
+
     }
 
     /**
