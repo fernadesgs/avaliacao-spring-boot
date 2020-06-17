@@ -33,9 +33,16 @@ public class EstudanteEntityRestControllerTest {
         estudante.setEmail("fernandesg10@gmail.com");
         estudante.setNome("Fernandes");
         estudante.setTelefone("123456");
+        estudante.setCurso("Ciência da Computação");
+        estudante.setMatricula("123456");
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/estudante/add").param("nome", estudante.getNome())
-                .param("email", estudante.getEmail()).param("telefone", estudante.getTelefone())).andDo(print()).andExpect(status().is(302))
+        mockMvc.perform(MockMvcRequestBuilders.post("/estudante/add")
+                .param("nome", estudante.getNome())
+                .param("email", estudante.getEmail())
+                .param("telefone", estudante.getTelefone())
+                .param("curso", estudante.getCurso())
+                .param("matricula", estudante.getMatricula()))
+                .andDo(print()).andExpect(status().is(302))
                 .andExpect(redirectedUrl("listar"));
          verify(estudanteService).cadastrarEstudante(estudante);
     }
